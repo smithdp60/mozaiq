@@ -1,0 +1,61 @@
+<div class="container text-center" ng-controller="AssessCtrl">
+  <h1>Assessment</h1>
+
+
+
+  <div ng-repeat="q in ei" class="col-md-offset-3 col-md-6 text-center">
+    <strong>{{q.question}}</strong><br>
+    <div class="btn-group btn-group-justified" role="group">
+      <div class="btn-group">
+        <button class="btn btn-default" ng-model="radioModel" btn-radio="'e'">{{q.e}}</button>
+        <button class="btn btn-default" ng-model="radioModel" btn-radio="'i'">{{q.i}}</button>
+      </div>
+    </div>
+    <br>
+  </div>
+
+  <div ng-repeat="q in sn" class="col-md-offset-3 col-md-6 text-center">
+    <strong>{{q.question}}</strong><br>
+    <div class="btn-group btn-group-justified" role="group">
+      <div class="btn-group">
+        <button class="btn btn-default" ng-model="radioModel" btn-radio="'e'">{{q.s}}</button>
+        <button class="btn btn-default" ng-model="radioModel" btn-radio="'i'">{{q.n}}</button>
+      </div>
+    </div>
+    <br>
+  </div>
+
+  <div ng-repeat="q in tj" class="col-md-offset-3 col-md-6 text-center">
+    <strong>{{q.question}}</strong><br>
+    <div class="btn-group btn-group-justified" role="group">
+      <div class="btn-group">
+        <button class="btn btn-default" ng-model="radioModel" btn-radio="'e'">{{q.t}}</button>
+        <button class="btn btn-default" ng-model="radioModel" btn-radio="'i'">{{q.j}}</button>
+      </div>
+    </div>
+    <br>
+  </div>
+
+  <div ng-repeat="q in jp" class="col-md-offset-3 col-md-6 text-center">
+    <strong>{{q.question}}</strong><br>
+    <div class="btn-group btn-group-justified" role="group">
+      <div class="btn-group">
+        <button class="btn btn-default" ng-model="radioModel" btn-radio="'e'">{{q.j}}</button>
+        <button class="btn btn-default" ng-model="radioModel" btn-radio="'i'">{{q.p}}</button>
+      </div>
+    </div>
+    <br>
+  </div>
+
+
+  <div class="col-md-offset-3 col-md-6 text-center">
+    <div class="btn-group btn-group-justified" role="group">
+      <div class="btn-group">
+        <button class="btn btn-primary">Submit Responses</button>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
