@@ -5,7 +5,12 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-module.exports = {
-	
+ module.exports = {
+
+  // var updateType = function(req, res) {
+  //   User.update({id: },{type:'yes'}).exec(console.log)
+  // }
+
+
 };
 

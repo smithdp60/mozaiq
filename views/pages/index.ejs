@@ -11,20 +11,32 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Mozaiq</a>
+        <a class="navbar-brand" href="/">
+          <img id="logo-small" src="images/mozaiq.png">
+          ozaiq
+        </a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/assess">Assessment</a></li>
-          <li><a href="/type">Type</a></li>
+          <li>
+            <a href="/assess"><button class="btn btn-default" type="button">
+              Assessment
+            </button></a>
+          </li>
+          <li>
+            <a href="/type"><button class="btn btn-default" type="button">
+              Type
+            </button></a>
+          </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="#"><button class="btn btn-primary" type="button">
-              Daniel <span class="badge">{{userType}}</span>
+            <a href="#"><button class="btn btn-default" type="button" ng-show="$root.currentUser">
+              <img ng-src={{$root.currentUserPic}} class="profile-pic">&nbsp;
+              {{$root.currentUser.first_name}} <span class="badge" ng-show="$root.currentUser.type">{{$root.currentUser.type}}</span>
             </button></a>
           </li>
         </ul>

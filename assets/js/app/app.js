@@ -1,8 +1,16 @@
 var mozaiqApp = angular.module("mozaiqApp", ['ngRoute', 'ngResource', 'ui.bootstrap']);
 
 
-mozaiqApp.run(['$rootScope', function($rootScope){
+mozaiqApp.run(['$rootScope', 'UserService', function($rootScope, UserService){
+
   console.log("mozaiqApp is up and running!");
+
+  UserService.check(function(err,data){
+
+    $rootScope.currentUser = UserService.currentUser;
+    $rootScope.currentUserPic = "https://graph.facebook.com/" + UserService.currentUser.id + "/picture";
+    console.log($rootScope.currentUser);
+  });
 
 }])
 

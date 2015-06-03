@@ -34,12 +34,16 @@
 
   '/': 'PagesController.index',
 
+  'update /userinfo/:id': 'TypeController.addType',
+
   'get /login': 'AuthController.login',
   'get /logout': 'AuthController.logout',
   'get /register': 'AuthController.register',
 
   'post /auth/local': 'AuthController.callback',
   'post /auth/local/:action': 'AuthController.callback',
+
+  'get /user_data' : 'PagesController.user_data',
 
   'get /auth/:provider': 'AuthController.provider',
   'get /auth/:provider/callback': 'AuthController.callback',
@@ -48,12 +52,12 @@
 
 
 
-  "get *":{
-    controller:"PagesController",
-    action:"index",
-    skipAssets: true,
-    skipRegex: /^\/api\/.*$/
-  }
+  // "get *":{
+  //   controller:"PagesController",
+  //   action:"index",
+  //   skipAssets: true,
+  //   skipRegex: /^\/api\/.*$/
+  // }
 
   /***************************************************************************
   *                                                                          *

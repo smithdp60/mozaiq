@@ -28,7 +28,7 @@
     options: {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      scope: ['email'] /* email is necessary for login behavior */
+      scope: ['email', 'user_friends', 'public_profile'] /* email is necessary for login behavior */
     }
   }
 };

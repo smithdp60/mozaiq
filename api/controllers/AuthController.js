@@ -6,6 +6,8 @@
  * the basics of Passport.js to work.
  */
 
+ var fbapi = require('facebook-api');
+
  var path = require('path');
  var sailsgen = require('sails-generate');
  var scope = {
@@ -184,10 +186,32 @@ var AuthController = {
 
         // Upon successful login, send the user to the homepage were req.user
         // will be available.
+
+        Passport.findOne({user: req.session.passport.user}).then(function(data) {
+          console.log("req.session.passport.user: ", req.session.passport.user);
+          console.log("accessToken: ", data.tokens.accessToken);
+          var accessToken = data.tokens.accessToken;
+
+          var client = fbapi.user(accessToken); // needs a valid access_token
+
+          client.me.info(function (err, data) {
+            if(err) {
+              console.log("Error: " + JSON.stringify(err));
+            } else {
+              UserInfo.findOrCreate({ email: data.email}, { user_id: req.session.passport.user, email: data.email, id: data.id, first_name: data.first_name, last_name: data.last_name, link: data.link }).exec(function createFindCB(err, record){
+                if (err) {
+                  console.log("Error: ", err);
+                } else {
+                  console.log("record: ", record);
+                }
+              })
+            };
+          });
+        });
         res.redirect('/');
       });
-    });
-  },
+});
+},
 
   /**
    * Disconnect a passport from a user
