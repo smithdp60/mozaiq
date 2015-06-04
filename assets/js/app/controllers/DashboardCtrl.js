@@ -1,4 +1,4 @@
-mozaiqApp.controller('DashboardCtrl', ['$scope', '$rootScope', 'UserService', function($scope, $rootScope, UserService){
+mozaiqApp.controller('DashboardCtrl', ['$scope', '$rootScope', 'UserService', '$http', function($scope, $rootScope, UserService, $http){
 
   console.log("DashboardCtrl loaded");
 
