@@ -28,18 +28,38 @@
               <i class="fa fa-sliders"></i> Assessment
             </a>
           </li>
-          <li ng-show="$root.currentUser">
-            <a href="type/type" type="button" class="btn">
-              <i class="fa fa-users"></i> Types
+          <li ng-show="$root.currentUser" dropdown is-open="status.isopen">
+            <a type="button" role="button" class="btn" dropdown-toggle ng-disabled="disabled">
+              <i class="fa fa-users"></i> Types <span class="caret"></span>
             </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="type/INFP">INFP - The Healer</a></li>
+              <li><a href="type/INFJ">INFJ - The Counselor</a></li>
+              <li><a href="type/INTJ">INTJ - The Mastermind</a></li>
+              <li><a href="type/INTP">INTP - The Architect</a></li>
+              <li class="divider"></li>
+              <li><a href="type/ISFJ">ISFJ - The Protector</a></li>
+              <li><a href="type/ISFP">ISFP - The Composer</a></li>
+              <li><a href="type/ISTJ">ISTJ - The Inspector</a></li>
+              <li><a href="type/ISTP">ISTP - The Craftsman</a></li>
+              <li class="divider"></li>
+              <li><a href="type/ENFJ">ENFJ - The Teacher</a></li>
+              <li><a href="type/ENFP">ENFP - The Champion</a></li>
+              <li><a href="type/ENTJ">ENTJ - The Commander</a></li>
+              <li><a href="type/ENTP">ENTP - The Visionary</a></li>
+              <li class="divider"></li>
+              <li><a href="type/ESFJ">ESFJ - The Provider</a></li>
+              <li><a href="type/ESFP">ESFP - The Performer</a></li>
+              <li><a href="type/ESTJ">ESTJ - The Supervisor</a></li>
+              <li><a href="type/ESTP">ESTP - The Dynamo</a></li>
+            </ul>
           </li>
           <li ng-show="$root.currentUser">
-            <a href="type/type" type="button" class="btn">
+            <a href="dichotomies" type="button" class="btn">
               <i class="fa fa-adjust"></i> Dichotomies
             </a>
           </li>
         </ul>
-
 
         <ul ng-show="$root.currentUser" class="nav navbar-nav navbar-right">
           <li>

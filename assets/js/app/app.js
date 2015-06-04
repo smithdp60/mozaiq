@@ -41,6 +41,10 @@ mozaiqApp.config(['$routeProvider', '$locationProvider', function($routeProvider
     templateUrl: '/views/type/index.html',
     controller: 'TypeCtrl'
   })
+  .when('/dichotomies', {
+    templateUrl: '/views/dichotomies/index.html',
+    controller: 'HomeCtrl'
+  })
   .when('/dashboard', {
     templateUrl: '/views/dashboard/index.html',
     controller: 'HomeCtrl'

@@ -3,7 +3,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
   console.log("TypeCtrl loaded");
 
   if ("/type/intj" == $location.$$path.toLowerCase()) {
-    $scope.type = "INTJ";
+    $scope.type = "INTJ - The Mastermind";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p>It’s lonely at the top, and being one of the rarest and most strategically capable personality types, INTJs know this all too well.</p><p>INTJs form just two percent of the population, and women of this personality type are especially rare, forming just 0.8% of the population – it is often a challenge for them to find like-minded individuals who are able to keep up with their relentless intellectualism and chess-like maneuvering.</p><p>People with the INTJ personality type are imaginative yet decisive, ambitious yet private, amazingly curious, but they do not squander their energy.</p><p>INTJs are perceptive about systems and strategy, and often understand the world as a chess board to be navigated. They want to understand how systems work, and how events proceed: the INTJ often has a unique ability to foresee logical outcomes. They enjoy applying themselves to a project or idea in depth, and putting in concentrated effort to achieve their goals.</p><p>INTJs have a hunger for knowledge and strive to constantly increase their competence; they are often perfectionists with extremely high standards of performance for themselves and others. They tend to have a keen interest in self-improvement and are lifelong learners, always looking to add to their base of information and awareness.</p>"},
@@ -26,7 +26,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
 
 
   } else if ("/type/entj" == $location.$$path.toLowerCase()) {
-    $scope.type = "ENTJ";
+    $scope.type = "ENTJ - The Commander";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p>ENTJ</p>"},
@@ -42,7 +42,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/intp" == $location.$$path.toLowerCase()) {
-    $scope.type = "INTP";
+    $scope.type = "INTP - The Architect";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -58,7 +58,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/entp" == $location.$$path.toLowerCase()) {
-    $scope.type = "ENTP";
+    $scope.type = "ENTP - The Visionary";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -74,7 +74,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/infj" == $location.$$path.toLowerCase()) {
-    $scope.type = "INFJ";
+    $scope.type = "INFJ - The Counselor";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -90,7 +90,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/infp" == $location.$$path.toLowerCase()) {
-    $scope.type = "INFP";
+    $scope.type = "INFP - The Healer";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -106,7 +106,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/enfj" == $location.$$path.toLowerCase()) {
-    $scope.type = "ENFJ";
+    $scope.type = "ENFJ - The Teacher";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -122,7 +122,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/enfp" == $location.$$path.toLowerCase()) {
-    $scope.type = "ENFP";
+    $scope.type = "ENFP - The Champion";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -138,7 +138,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/istj" == $location.$$path.toLowerCase()) {
-    $scope.type = "ISTJ";
+    $scope.type = "ISTJ - The Inspector";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -154,7 +154,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/estj" == $location.$$path.toLowerCase()) {
-    $scope.type = "ESTJ";
+    $scope.type = "ESTJ - The Supervisor";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -170,7 +170,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/isfj" == $location.$$path.toLowerCase()) {
-    $scope.type = "ISFJ";
+    $scope.type = "ISFJ - The Protector";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -186,7 +186,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/esfj" == $location.$$path.toLowerCase()) {
-    $scope.type = "ESFJ";
+    $scope.type = "ESFJ - The Provider";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -202,7 +202,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/istp" == $location.$$path.toLowerCase()) {
-    $scope.type = "ISTP";
+    $scope.type = "ISTP - The Craftsman";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -218,7 +218,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/isfp" == $location.$$path.toLowerCase()) {
-    $scope.type = "ISFP";
+    $scope.type = "ISFP - The Composer";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -234,7 +234,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/esfp" == $location.$$path.toLowerCase()) {
-    $scope.type = "ESFP";
+    $scope.type = "ESFP - The Performer";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},
@@ -250,7 +250,7 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p></p>"}
     ]
   } else if ("/type/estp" == $location.$$path.toLowerCase()) {
-    $scope.type = "ESTP";
+    $scope.type = "ESTP - The Dynamo";
     $scope.typeData = [
     {"title" : "Overview",
     "content" : "<p></p>"},

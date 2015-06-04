@@ -8,4 +8,9 @@ mozaiqApp.controller('NavCtrl', ['$scope', '$window', function($scope, $window){
     $window.location.href = '/logout';
   }
 
+
+  $scope.status = {
+    isopen: false
+  };
+
 }]);
