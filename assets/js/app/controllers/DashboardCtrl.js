@@ -4,7 +4,6 @@ mozaiqApp.controller('DashboardCtrl', ['$scope', '$rootScope', 'UserService', fu
 
   UserService.friends(function(err,data){
 
-
     var friendsArray = [];
 
     for (var key in data) {
@@ -19,8 +18,6 @@ mozaiqApp.controller('DashboardCtrl', ['$scope', '$rootScope', 'UserService', fu
           var friendType = data.type
           console.log(data.type);
           friendArray.push(friendType)
-        } else {
-          return
         }
       }).error(function(err){
         console.log(err);
@@ -28,11 +25,9 @@ mozaiqApp.controller('DashboardCtrl', ['$scope', '$rootScope', 'UserService', fu
 
       friendsArray.push(friendArray);
     }
-
     console.log("friends: ", friendsArray)
 
-
-
   });
+
 
 }]);
