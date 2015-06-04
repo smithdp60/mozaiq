@@ -16,6 +16,22 @@ mozaiqApp.factory('UserService', ['$http', function($http) {
       .error(function(err) {
         callback(err);
       });
+    },
+    friends: function(callback) {
+      var self = this;
+
+      $http.get('/friends_list')
+      .success(function(data) {
+        if (data) {
+          self.friendsList = data;
+        } else {
+          self.friendsList = false;
+        }
+        callback(null, data);
+      })
+      .error(function(err) {
+        callback(err);
+      });
     }
 
   }

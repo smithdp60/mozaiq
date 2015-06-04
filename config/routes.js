@@ -44,6 +44,7 @@
   'post /auth/local/:action': 'AuthController.callback',
 
   'get /user_data' : 'PagesController.user_data',
+  'get /friends_list' : 'PagesController.friends_list',
 
   'get /auth/:provider': 'AuthController.provider',
   'get /auth/:provider/callback': 'AuthController.callback',

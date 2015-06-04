@@ -11,6 +11,16 @@ mozaiqApp.run(['$rootScope', 'UserService', '$http', function($rootScope, UserSe
     $rootScope.currentUserPic = "https://graph.facebook.com/" + UserService.currentUser.id + "/picture";
     console.log("$rootScope.currentUser: ", $rootScope.currentUser);
 
+
+    //retrieves current user's FB friends
+
+    // $rootScope.friendsList = "https://graph.facebook.com/" + UserService.currentUser.id + "/friends?access_token=" + facebook_user.provider_hash
+
+
+
+
+
+
     //retrieves current user's type
     $http.get('/api/userinfo/' + UserService.currentUser.id).success(function(data){
       var type = data.type
