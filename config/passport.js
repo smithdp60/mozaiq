@@ -14,7 +14,7 @@
  * http://passportjs.org/guide/providers/
  */
 
-
+ var host = process.env.NODE_ENV == 'production' ? 'mozaiq.herokuapp.com' : 'localhost:1337';
 
  module.exports.passport = {
   local: {
@@ -28,6 +28,7 @@
     options: {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
+      callbackURL: "http://" + host + "/auth/facebook/callback",
       scope: ['email', 'user_friends', 'public_profile'] /* email is necessary for login behavior */
     }
   }
