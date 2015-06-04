@@ -7,7 +7,7 @@
 
     <div class="col-md-1 text-center">
       <a href="/type/{{$root.currentUserType}}">
-        <img ng-src={{$root.currentUserPic}} class="profile-pic"><br>
+        <img ng-src="https://graph.facebook.com/{{$root.currentUserPic}}/picture" class="profile-pic"><br>
         {{$root.currentUser.name}}<br>
         <span class="badge" ng-show="$root.currentUserType">{{$root.currentUserType}}</span>
       </a>
