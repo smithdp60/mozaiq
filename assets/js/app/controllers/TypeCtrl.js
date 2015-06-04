@@ -1,4 +1,4 @@
-mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location){
+mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', 'unsafe', function($scope, $rootScope, $location, unsafe){
 
   console.log("TypeCtrl loaded");
 
