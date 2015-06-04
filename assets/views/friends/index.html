@@ -1,11 +1,14 @@
-<div class="container" ng-controller="DashboardCtrl">
+<div class="container" ng-controller="FriendsCtrl">
 
 
-  <div class="col-md-offset-2 col-md-8 dashboard">
+  <div class="col-md-offset-2 col-md-8 friends text-center">
 
-    <h1 class="text-center">Dashboard</h1>
 
-    <div class="col-md-2 text-center">
+    <h1 class="text-center">Friends</h1>
+
+    <input type="text" id="search-bar" class="form-control" ng-model="query" placeholder="Search by name or type"/><br>
+
+    <div class="col-md-2 text-center current-user-on-friends">
       <a href="/type/{{$root.currentUserType}}">
         <img ng-src={{$root.currentUserPic}} class="profile-pic"><br>
         {{$root.currentUser.name}}<br>
@@ -13,8 +16,9 @@
       </a>
     </div>
 
-    <div ng-repeat="f in friendsArray">
-      <div class="col-md-2 text-center" ng-show="f[2]">
+
+    <div ng-repeat="f in friendsArray | filter:query">
+      <div class="col-md-2 text-center user-on-friends" ng-show="f[2]">
 
         <a href="/type/{{f[2]}}">
           <img ng-src="https://graph.facebook.com/{{f[0]}}/picture" class="profile-pic"><br>

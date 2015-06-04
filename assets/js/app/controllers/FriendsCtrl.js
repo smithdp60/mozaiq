@@ -1,6 +1,6 @@
-mozaiqApp.controller('DashboardCtrl', ['$scope', '$rootScope', 'UserService', '$http', function($scope, $rootScope, UserService, $http){
+mozaiqApp.controller('FriendsCtrl', ['$scope', '$rootScope', 'UserService', '$http', function($scope, $rootScope, UserService, $http){
 
-  console.log("DashboardCtrl loaded");
+  console.log("FriendsCtrl loaded");
 
   UserService.friends(function(err,data){
 

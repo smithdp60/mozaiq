@@ -32,28 +32,30 @@
             <a type="button" role="button" class="btn" dropdown-toggle ng-disabled="disabled">
               <i class="fa fa-users"></i> Types <span class="caret"></span>
             </a>
+
             <ul class="dropdown-menu" role="menu">
-              <li><a href="type/INFP">INFP - The Healer</a></li>
-              <li><a href="type/INFJ">INFJ - The Counselor</a></li>
-              <li><a href="type/INTJ">INTJ - The Mastermind</a></li>
-              <li><a href="type/INTP">INTP - The Architect</a></li>
+              <li><a href="type/INFP"><i class="fa fa-fw fa-leaf"></i>&nbsp; INFP - The Healer</a></li>
+              <li><a href="type/INFJ"><i class="fa fa-fw fa-anchor"></i>&nbsp; INFJ - The Counselor</a></li>
+              <li><a href="type/INTJ"><i class="fa fa-fw fa-puzzle-piece"></i>&nbsp; INTJ - The Mastermind</a></li>
+              <li><a href="type/INTP"><i class="fa fa-fw fa-lightbulb-o"></i>&nbsp; INTP - The Architect</a></li>
               <li class="divider"></li>
-              <li><a href="type/ISFJ">ISFJ - The Protector</a></li>
-              <li><a href="type/ISFP">ISFP - The Composer</a></li>
-              <li><a href="type/ISTJ">ISTJ - The Inspector</a></li>
-              <li><a href="type/ISTP">ISTP - The Craftsman</a></li>
+              <li><a href="type/ISFJ"><i class="fa fa-fw fa-key"></i>&nbsp; ISFJ - The Protector</a></li>
+              <li><a href="type/ISFP"><i class="fa fa-fw fa-music"></i>&nbsp; ISFP - The Composer</a></li>
+              <li><a href="type/ISTJ"><i class="fa fa-fw fa-search"></i>&nbsp; ISTJ - The Inspector</a></li>
+              <li><a href="type/ISTP"><i class="fa fa-fw fa-tree"></i>&nbsp; ISTP - The Craftsman</a></li>
               <li class="divider"></li>
-              <li><a href="type/ENFJ">ENFJ - The Teacher</a></li>
-              <li><a href="type/ENFP">ENFP - The Champion</a></li>
-              <li><a href="type/ENTJ">ENTJ - The Commander</a></li>
-              <li><a href="type/ENTP">ENTP - The Visionary</a></li>
+              <li><a href="type/ENFJ"><span class="glyphicon glyphicon-fw glyphicon-education" aria-hidden="true"></span>&nbsp; ENFJ - The Teacher</a></li>
+              <li><a href="type/ENFP"><i class="fa fa-fw fa-trophy"></i>&nbsp; ENFP - The Champion</a></li>
+              <li><a href="type/ENTJ"><i class="fa fa-fw fa-shield"></i>&nbsp; ENTJ - The Commander</a></li>
+              <li><a href="type/ENTP"><i class="fa fa-fw fa-eye"></i>&nbsp; ENTP - The Visionary</a></li>
               <li class="divider"></li>
-              <li><a href="type/ESFJ">ESFJ - The Provider</a></li>
-              <li><a href="type/ESFP">ESFP - The Performer</a></li>
-              <li><a href="type/ESTJ">ESTJ - The Supervisor</a></li>
-              <li><a href="type/ESTP">ESTP - The Dynamo</a></li>
+              <li><a href="type/ESFJ"><span class="glyphicon glyphicon-apple" aria-hidden="true"></span>&nbsp; ESFJ - The Provider</a></li>
+              <li><a href="type/ESFP"><i class="fa fa-fw fa-microphone"></i> ESFP - The Performer</a></li>
+              <li><a href="type/ESTJ"><i class="fa fa-fw fa-list"></i>&nbsp; ESTJ - The Supervisor</a></li>
+              <li><a href="type/ESTP"><i class="fa fa-fw fa-bolt"></i>&nbsp; ESTP - The Dynamo</a></li>
             </ul>
           </li>
+
           <li ng-show="$root.currentUser">
             <a href="dichotomies" type="button" class="btn">
               <i class="fa fa-adjust"></i> Dichotomies
@@ -62,15 +64,19 @@
         </ul>
 
         <ul ng-show="$root.currentUser" class="nav navbar-nav navbar-right">
-          <li>
-            <a href="/dashboard" type="button" class="btn">
-              {{$root.currentUser.first_name}} &nbsp;<span class="badge" ng-show="$root.currentUserType">{{$root.currentUserType}}</span>
+
+          <li dropdown is-open="status2.isopen">
+            <a type="button" class="btn" dropdown-toggle ng-disabled="disabled">
+              {{$root.currentUser.first_name}} &nbsp;<span class="badge" ng-show="$root.currentUserType">{{$root.currentUserType}}</span> <span class="caret"></span>
             </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/friends"><i class="fa fa-fw fa-facebook-official"></i> Friends</a></li>
+              <li><a href="#" ng-click="logout()"><i class="fa fa-fw fa-sign-out"></i> Logout</a></li>
+            </ul>
           </li>
-          <li>
-            <a href="#" ng-click="logout()" type="button" class="btn"><i class="fa fa-sign-out"></i> Logout</a>
-          </li>
+
         </ul>
+
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>

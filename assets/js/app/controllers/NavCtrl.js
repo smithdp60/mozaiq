@@ -13,4 +13,8 @@ mozaiqApp.controller('NavCtrl', ['$scope', '$window', function($scope, $window){
     isopen: false
   };
 
+  $scope.status2 = {
+    isopen: false
+  };
+
 }]);

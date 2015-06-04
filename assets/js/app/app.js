@@ -11,12 +11,6 @@ mozaiqApp.run(['$rootScope', 'UserService', '$http', function($rootScope, UserSe
     $rootScope.currentUserPic = "https://graph.facebook.com/" + UserService.currentUser.id + "/picture";
     console.log("$rootScope.currentUser: ", $rootScope.currentUser);
 
-
-    //retrieves current user's FB friends
-    $rootScope.friends = UserService.friends;
-    console.log($rootScope.friends)
-
-
     //retrieves current user's type
     $http.get('/api/userinfo/' + UserService.currentUser.id).success(function(data){
       var type = data.type
@@ -51,9 +45,9 @@ mozaiqApp.config(['$routeProvider', '$locationProvider', function($routeProvider
     templateUrl: '/views/dichotomies/index.html',
     controller: 'HomeCtrl'
   })
-  .when('/dashboard', {
-    templateUrl: '/views/dashboard/index.html',
-    controller: 'HomeCtrl'
+  .when('/friends', {
+    templateUrl: '/views/friends/index.html',
+    controller: 'FriendsCtrl'
   })
   // .otherwise({
   //   templateUrl: '/views/404.html'
