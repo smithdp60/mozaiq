@@ -26,8 +26,8 @@
     protocol: 'oauth2',
     strategy: require('passport-facebook').Strategy,
     options: {
-      clientID: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
+      clientID: process.env.FACEBOOK_APP_ID,
+      clientSecret: process.env.FACEBOOK_SECRET,
       scope: ['email', 'user_friends', 'public_profile'] /* email is necessary for login behavior */
     }
   }
