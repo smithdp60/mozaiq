@@ -610,347 +610,347 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', '$http', 'Us
     asked: 0
   },
 
-  {
-    dichotomy: "tf",
-    question: "In a team meeting, I prefer to emphasize",
-    t: "an analytical discussion of the facts.",
-    f: "a discussion of the values involved.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "In a team meeting, I prefer to emphasize",
+  //   t: "an analytical discussion of the facts.",
+  //   f: "a discussion of the values involved.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "If I have to confront colleagues or subordinates, I am usually",
-    t: "interested in making sure I give them the facts accurately.",
-    f: "more interested in making sure I don't hurt their feelings.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "If I have to confront colleagues or subordinates, I am usually",
+  //   t: "interested in making sure I give them the facts accurately.",
+  //   f: "more interested in making sure I don't hurt their feelings.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "When I have a decision to make at work, I usually",
-    t: "reason it through regardless of my feelings.",
-    f: "consider my feelings to be very important.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When I have a decision to make at work, I usually",
+  //   t: "reason it through regardless of my feelings.",
+  //   f: "consider my feelings to be very important.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "When faced with a decision at work, I usually prefer to",
-    t: "think things through.",
-    f: "trust my gut feelings.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When faced with a decision at work, I usually prefer to",
+  //   t: "think things through.",
+  //   f: "trust my gut feelings.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "When faced with a decision at work, I usually",
-    t: "focus on the facts and figures above all.",
-    f: "give careful attention to people's feelings.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When faced with a decision at work, I usually",
+  //   t: "focus on the facts and figures above all.",
+  //   f: "give careful attention to people's feelings.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "If someone argues with a policy or decision I make, I usually",
-    t: "remain firm.",
-    f: "seek to avoid unpleasantness, anger, and disharmony.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "If someone argues with a policy or decision I make, I usually",
+  //   t: "remain firm.",
+  //   f: "seek to avoid unpleasantness, anger, and disharmony.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "When I have a long and complex report to read, I am more likely to",
-    t: "be patient and study the details.",
-    f: "try to get the general ideas and see how I feel about them.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When I have a long and complex report to read, I am more likely to",
+  //   t: "be patient and study the details.",
+  //   f: "try to get the general ideas and see how I feel about them.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "I prefer to work with colleagues who",
-    t: "rely heavily on logic.",
-    f: "look more often to their feelings.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "I prefer to work with colleagues who",
+  //   t: "rely heavily on logic.",
+  //   f: "look more often to their feelings.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "If I have to deal with a colleague's feelings,  I prefer to be",
-    t: "truthful even if I can't be tactful.",
-    f: "tactful even if I can't tell the truth.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "If I have to deal with a colleague's feelings,  I prefer to be",
+  //   t: "truthful even if I can't be tactful.",
+  //   f: "tactful even if I can't tell the truth.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "When I am at a meeting and a difference of opinion gets heated, I usually",
-    t: "defend the side I think is most logical.",
-    f: "try to create a harmonious atmosphere and solution.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When I am at a meeting and a difference of opinion gets heated, I usually",
+  //   t: "defend the side I think is most logical.",
+  //   f: "try to create a harmonious atmosphere and solution.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "When I have a meeting with a colleague, I usually",
-    t: "get through it quickly in a business-like manner.",
-    f: "linger over the sociable interaction.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When I have a meeting with a colleague, I usually",
+  //   t: "get through it quickly in a business-like manner.",
+  //   f: "linger over the sociable interaction.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "When colleagues ask my advice about a work matter, I more often",
-    t: "guide them toward a decision based purely on logic.",
-    f: "help them explore the values and policies in the situation.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When colleagues ask my advice about a work matter, I more often",
+  //   t: "guide them toward a decision based purely on logic.",
+  //   f: "help them explore the values and policies in the situation.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "When I am putting forward a new idea at work, I more often",
-    t: "remain firm about the correctness of it.",
-    f: "try to persuade others by appealing to their sense of value.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When I am putting forward a new idea at work, I more often",
+  //   t: "remain firm about the correctness of it.",
+  //   f: "try to persuade others by appealing to their sense of value.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "I am usually more interested in how my colleagues",
-    t: "think about problems.",
-    f: "feel about problems.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "I am usually more interested in how my colleagues",
+  //   t: "think about problems.",
+  //   f: "feel about problems.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "When I hear a presentation from a colleague, I am more likely to be",
-    t: "openly and intellectually critical.",
-    f: "careful in voicing my opinions, especially when I disagree.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When I hear a presentation from a colleague, I am more likely to be",
+  //   t: "openly and intellectually critical.",
+  //   f: "careful in voicing my opinions, especially when I disagree.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "When I have to make a decision at work, I am more likely to",
-    t: "analyze the situation logically without considering my values and feelings.",
-    f: "put a strong emphasis on applying my values and feelings to the solution.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When I have to make a decision at work, I am more likely to",
+  //   t: "analyze the situation logically without considering my values and feelings.",
+  //   f: "put a strong emphasis on applying my values and feelings to the solution.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "In a performance appraisal meeting, I am usually more likely to",
-    t: "be frank and honest regardless of feelings.",
-    f: "try to smooth over any problems and avoid hurt feelings.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "In a performance appraisal meeting, I am usually more likely to",
+  //   t: "be frank and honest regardless of feelings.",
+  //   f: "try to smooth over any problems and avoid hurt feelings.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "My colleagues would be more likely to describe my behavior at work as --",
-    t: "cool, calm, and objective.",
-    f: "warm and feeling.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "My colleagues would be more likely to describe my behavior at work as --",
+  //   t: "cool, calm, and objective.",
+  //   f: "warm and feeling.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "tf",
-    question: "In a training session or course, I prefer a trainer who depends more on",
-    t: "precision and logic.",
-    f: "emotion and experience.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "In a training session or course, I prefer a trainer who depends more on",
+  //   t: "precision and logic.",
+  //   f: "emotion and experience.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "I prefer the place where I work to be",
-    j: "structured with clear rules and regulations.",
-    p: "more open-ended and laissez-faire.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "I prefer the place where I work to be",
+  //   j: "structured with clear rules and regulations.",
+  //   p: "more open-ended and laissez-faire.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "I prefer projects at work",
-    j: "to be well-defined and planned out.",
-    p: "to allow for flexible interpretation.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "I prefer projects at work",
+  //   j: "to be well-defined and planned out.",
+  //   p: "to allow for flexible interpretation.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "I prefer to",
-    j: "plan my workday carefully in advance.",
-    p: "let the day progress and see how things turn out.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "I prefer to",
+  //   j: "plan my workday carefully in advance.",
+  //   p: "let the day progress and see how things turn out.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "I prefer a job in which the rewards are",
-    j: "seen clearly in regular periods.",
-    p: "stretched out over long periods of time.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "I prefer a job in which the rewards are",
+  //   j: "seen clearly in regular periods.",
+  //   p: "stretched out over long periods of time.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "I would rather have a boss who",
-    j: "provides a lot of structure and organization.",
-    p: "leaves me to do things however they work best for me.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "I would rather have a boss who",
+  //   j: "provides a lot of structure and organization.",
+  //   p: "leaves me to do things however they work best for me.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "I prefer my own office to be one in which",
-    j: "things are orderly, organized, and systematic,",
-    p: "there is a creative array of projects, papers, and books.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "I prefer my own office to be one in which",
+  //   j: "things are orderly, organized, and systematic,",
+  //   p: "there is a creative array of projects, papers, and books.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "I prefer the work I do every day to",
-    j: "be continuous and relatively predictable.",
-    p: "have frequent changes in activities and schedules.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "I prefer the work I do every day to",
+  //   j: "be continuous and relatively predictable.",
+  //   p: "have frequent changes in activities and schedules.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "When my boss gives me a new project, I usually prefer",
-    j: "a clear statement of what is expected.",
-    p: "to be left to work it out the way I want.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "When my boss gives me a new project, I usually prefer",
+  //   j: "a clear statement of what is expected.",
+  //   p: "to be left to work it out the way I want.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "When I have made a tough choice at work, I usually",
-    j: "am satisfied that it is done.",
-    p: "wish that I could remain open to other alternatives.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "When I have made a tough choice at work, I usually",
+  //   j: "am satisfied that it is done.",
+  //   p: "wish that I could remain open to other alternatives.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "I prefer my work environment to be",
-    j: "comfortable, predictable, and stable.",
-    p: "flexible and changing.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "I prefer my work environment to be",
+  //   j: "comfortable, predictable, and stable.",
+  //   p: "flexible and changing.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "If someone on my team is late with a scheduled task, I usually",
-    j: "get impatient and annoyed.",
-    p: "look for ways to stretch the deadlines.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "If someone on my team is late with a scheduled task, I usually",
+  //   j: "get impatient and annoyed.",
+  //   p: "look for ways to stretch the deadlines.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "I prefer projects that",
-    j: "have a clear ending date when I know they will be finished.",
-    p: "may remain open-ended to ensure that all bases are covered.",
-    response: "",
-    asked: 0
-  }
-  ,
-  {
-    dichotomy: "jp",
-    question: "When I get a new project, I usually prefer to",
-    j: "get to it and complete it as quickly as possible.",
-    p: "move as slowly as allowable and explore various approaches.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "I prefer projects that",
+  //   j: "have a clear ending date when I know they will be finished.",
+  //   p: "may remain open-ended to ensure that all bases are covered.",
+  //   response: "",
+  //   asked: 0
+  // }
+  // ,
+  // {
+  //   dichotomy: "jp",
+  //   question: "When I get a new project, I usually prefer to",
+  //   j: "get to it and complete it as quickly as possible.",
+  //   p: "move as slowly as allowable and explore various approaches.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "I would rather be in a job with",
-    j: "activities requiring me to reach a conclusion.",
-    p: "activities that allow me to stay open to my experience.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "I would rather be in a job with",
+  //   j: "activities requiring me to reach a conclusion.",
+  //   p: "activities that allow me to stay open to my experience.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "When I am in a meeting, I am usually more interested in",
-    j: "getting the job done as quickly as possible.",
-    p: "spending time making sure everyone gets heard.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "When I am in a meeting, I am usually more interested in",
+  //   j: "getting the job done as quickly as possible.",
+  //   p: "spending time making sure everyone gets heard.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "If my boss insists that I schedule my workday, I feel",
-    j: "satisfied I am organized.",
-    p: "uncomfortable that I am constrained.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "If my boss insists that I schedule my workday, I feel",
+  //   j: "satisfied I am organized.",
+  //   p: "uncomfortable that I am constrained.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "When a new and unusual policy announcement is issued at work, I am usually",
-    j: "annoyed or otherwise upset at the changes.",
-    p: "interested in seeing how I will handle the new environment.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "When a new and unusual policy announcement is issued at work, I am usually",
+  //   j: "annoyed or otherwise upset at the changes.",
+  //   p: "interested in seeing how I will handle the new environment.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "If they couldn't be both, I would rather have colleagues who are",
-    j: "well-organized.",
-    p: "spontaneous.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "If they couldn't be both, I would rather have colleagues who are",
+  //   j: "well-organized.",
+  //   p: "spontaneous.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "jp",
-    question: "When I present my views in a meeting, I am usually",
-    j: "decisive.",
-    p: "open to having others suggest changes and other views.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "When I present my views in a meeting, I am usually",
+  //   j: "decisive.",
+  //   p: "open to having others suggest changes and other views.",
+  //   response: "",
+  //   asked: 0
+  // },
 
   {
     dichotomy: "jp",
