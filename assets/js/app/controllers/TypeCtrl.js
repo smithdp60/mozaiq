@@ -272,8 +272,8 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     "content" : "<p>Sorry, invalid type.</p>"}
     ]
   }
-
 }])
+
 
 
 mozaiqApp.filter('unsafe', function($sce) {
