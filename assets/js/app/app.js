@@ -13,12 +13,8 @@ mozaiqApp.run(['$rootScope', 'UserService', '$http', function($rootScope, UserSe
 
 
     //retrieves current user's FB friends
-
-    // $rootScope.friendsList = "https://graph.facebook.com/" + UserService.currentUser.id + "/friends?access_token=" + facebook_user.provider_hash
-
-
-
-
+    $rootScope.friends = UserService.friends;
+    console.log($rootScope.friends)
 
 
     //retrieves current user's type
