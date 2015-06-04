@@ -273,8 +273,8 @@ mozaiqApp.controller('TypeCtrl', ['$scope', '$rootScope', '$location', function(
     ]
   }
 }])
-.filter('unsafe', function($sce) {
+.filter('unsafe', ['$sce', function($sce) {
   return function(val) {
     return $sce.trustAsHtml(val);
   };
-});
+}]);
