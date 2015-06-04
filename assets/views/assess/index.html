@@ -1,70 +1,75 @@
 <div class="container text-center" ng-controller="AssessCtrl">
 
-  <h1>Assessment</h1>
+  <div class="col-md-offset-2 col-md-8 assessment">
 
-  <div class="col-md-offset-3 col-md-6 text-center">
-  </div>
+    <div class="col-md-offset-1 col-md-10 text-center" ng-hide="showassess">
+      <h1>Assessment</h1>
+      <h3>At its core, the Myers–Briggs Type Indicator (MBTI) is a "best fit" summary and not a full profile. Its usefulness comes from simplifying, rather than fully describing the richness and nuance of one's infinitely complex and unique personality.</h3><h3>Understanding how to appropriately leverage this information can be a beneficial aspect of intra- and interpersonal development.</h3><h3>When taking the assessment, answer as honestly and objectively as possible, setting aside the way you think you <i>should</i> behave or <i>wish</i> you behaved. The more accurate your answers, the more useful the information will be to you.</h3><br><button ng-click="showassess=true" class="btn btn-lg btn-primary">Begin Assessment</button>
+    </div>
+    <div ng-show="showassess">
+      <div ng-hide="userType">
+        <h1>Assessment</h1>
+        <h3></h3>
+        <div ng-repeat="q in ei" class="col-md-offset-1 col-md-10 text-center">
+          <strong>{{q.question}}</strong><br>
+          <div class="btn-group-justified" role="group">
+            <div class="btn-group">
+              <button ng-click="check(eIselectedOption,$index)" class="btn btn-default" ng-model="eIselectedOption[$index]" btn-radio="'e'">{{q.e}}</button>
+              <button ng-click="check(eIselectedOption,$index)" class="btn btn-default" ng-model="eIselectedOption[$index]" btn-radio="'i'">{{q.i}}</button>
+            </div>
+          </div>
+          <br>
+        </div>
 
-  <div ng-hide="userType">
-    <div ng-repeat="q in ei" class="col-md-offset-3 col-md-6 text-center">
-      <strong>{{q.question}}</strong><br>
-      <div class="btn-group-justified" role="group">
-        <div class="btn-group">
-          <button class="btn btn-default" ng-model="eIselectedOption[$index]" btn-radio="'e'">{{q.e}}</button>
-          <button class="btn btn-default" ng-model="eIselectedOption[$index]" btn-radio="'i'">{{q.i}}</button>
+        <div ng-repeat="q in sn" class="col-md-offset-1 col-md-10 text-center">
+          <strong>{{q.question}}</strong><br>
+          <div class="btn-group-justified" role="group">
+            <div class="btn-group">
+              <button ng-click="check(sNselectedOption,$index)" class="btn btn-default" ng-model="sNselectedOption[$index]" btn-radio="'s'">{{q.s}}</button>
+              <button ng-click="check(sNselectedOption,$index)" class="btn btn-default" ng-model="sNselectedOption[$index]" btn-radio="'n'">{{q.n}}</button>
+            </div>
+          </div>
+          <br>
+        </div>
+
+        <div ng-repeat="q in tf" class="col-md-offset-1 col-md-10 text-center">
+          <strong>{{q.question}}</strong><br>
+          <div class="btn-group btn-group-justified" role="group">
+            <div class="btn-group">
+              <button ng-click="check(tFselectedOption,$index)" class="btn btn-default" ng-model="tFselectedOption[$index]" btn-radio="'t'">{{q.t}}</button>
+              <button ng-click="check(tFselectedOption,$index)" class="btn btn-default" ng-model="tFselectedOption[$index]" btn-radio="'f'">{{q.f}}</button>
+            </div>
+          </div>
+          <br>
+        </div>
+
+        <div ng-repeat="q in jp" class="col-md-offset-1 col-md-10 text-center">
+          <strong>{{q.question}}</strong><br>
+          <div class="btn-group btn-group-justified" role="group">
+            <div class="btn-group">
+              <button ng-click="check(jPselectedOption,$index)" class="btn btn-default" ng-model="jPselectedOption[$index]" btn-radio="'j'">{{q.j}}</button>
+              <button ng-click="check(jPselectedOption,$index)" class="btn btn-default" ng-model="jPselectedOption[$index]" btn-radio="'p'">{{q.p}}</button>
+            </div>
+          </div>
+          <br>
+        </div>
+
+
+        <div class="col-md-offset-1 col-md-10 text-center">
+          <div class="btn-group btn-group-justified" role="group">
+            <div class="btn-group">
+              <button class="btn btn-lg btn-primary" id="submit-button" ng-show="(answers) == (ei.length + sn.length + tf.length + jp.length)" ng-click="submitResponse()">Submit Assessment</button>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+
+    <div class="col-md-offset-1 col-md-10 text-center" ng-show="userType">
+      <h1 id="result-header">Result</h1>
       <br>
-    </div>
-
-    <div ng-repeat="q in sn" class="col-md-offset-3 col-md-6 text-center">
-      <strong>{{q.question}}</strong><br>
-      <div class="btn-group-justified" role="group">
-        <div class="btn-group">
-          <button class="btn btn-default" ng-model="sNselectedOption[$index]" btn-radio="'s'">{{q.s}}</button>
-          <button class="btn btn-default" ng-model="sNselectedOption[$index]" btn-radio="'n'">{{q.n}}</button>
-        </div>
-      </div>
-      <br>
-    </div>
-
-    <div ng-repeat="q in tf" class="col-md-offset-3 col-md-6 text-center">
-      <strong>{{q.question}}</strong><br>
-      <div class="btn-group btn-group-justified" role="group">
-        <div class="btn-group">
-          <button class="btn btn-default" ng-model="tFselectedOption[$index]" btn-radio="'t'">{{q.t}}</button>
-          <button class="btn btn-default" ng-model="tFselectedOption[$index]" btn-radio="'f'">{{q.f}}</button>
-        </div>
-      </div>
-      <br>
-    </div>
-
-    <div ng-repeat="q in jp" class="col-md-offset-3 col-md-6 text-center">
-      <strong>{{q.question}}</strong><br>
-      <div class="btn-group btn-group-justified" role="group">
-        <div class="btn-group">
-          <button class="btn btn-default" ng-model="jPselectedOption[$index]" btn-radio="'j'">{{q.j}}</button>
-          <button class="btn btn-default" ng-model="jPselectedOption[$index]" btn-radio="'p'">{{q.p}}</button>
-        </div>
-      </div>
-      <br>
-    </div>
-
-
-    <div class="col-md-offset-3 col-md-6 text-center">
-      <div class="btn-group btn-group-justified" role="group">
-        <div class="btn-group">
-          <button class="btn btn-primary" ng-show="(eIselectedOption.length + sNselectedOption.length + tFselectedOption.length + jPselectedOption.length) == (ei.length + sn.length + tf.length + jp.length)" ng-click="submitResponse()">Submit Responses</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="col-md-offset-3 col-md-6 text-center" ng-show="userType">
-    <h2>{{userType}}</h2>
-
-    <div>
+      <a href="/type/{{userType}}" class="btn btn-primary" id="result-button">{{userType}}</a>
+      <br><br>
       <progress>
         <bar value="ePercent" type="info">
           <span ng-hide="ePercent < 3">{{ePercent}}% Extrovert</span>
@@ -100,8 +105,8 @@
           <span ng-hide="pPercent < 3">{{pPercent}}% Perceiving</span>
         </bar>
       </progress>
+      <!-- </div> -->
+
     </div>
-
   </div>
-
 </div>

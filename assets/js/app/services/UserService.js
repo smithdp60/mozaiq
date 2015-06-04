@@ -16,24 +16,7 @@ mozaiqApp.factory('UserService', ['$http', function($http) {
       .error(function(err) {
         callback(err);
       });
-    },
-
-    getType: function(callback) {
-      var self = this;
-      $http.get('/userinfo/')
-      .success(function(data) {
-        if (data) {
-          self.currentUser = data;
-        } else {
-          self.currentUser = false;
-        }
-        callback(null, data);
-      })
-      .error(function(err) {
-        callback(err);
-      });
     }
-
 
   }
 }]);

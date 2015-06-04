@@ -1,0 +1,18 @@
+<div class="container" ng-controller="DashboardCtrl">
+
+
+  <div class="col-md-offset-2 col-md-8 dashboard">
+
+    <h1 class="text-center">Dashboard</h1>
+
+    <div class="col-md-1 text-center">
+      <a href="/type/{{$root.currentUserType}}">
+        <img ng-src={{$root.currentUserPic}} class="profile-pic"><br>
+        {{$root.currentUser.first_name}}<br>
+        <span class="badge" ng-show="$root.currentUserType">{{$root.currentUserType}}</span>
+      </a>
+    </div>
+
+  </div>
+
+</div>

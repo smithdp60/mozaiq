@@ -1,6 +1,6 @@
 mozaiqApp.factory('Type', ['$resource', function($resource) {
 
-  return $resource('/userinfo/:id', null, {
+  return $resource('/api/userinfo/:id', null, {
     'update': {
       method: 'PUT'
     }

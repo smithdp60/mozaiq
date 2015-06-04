@@ -1,4 +1,4 @@
-mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($scope, $rootScope, Type){
+mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', '$http', 'UserService', function($scope, $rootScope, Type, $http, UserService){
 
   console.log("AssessCtrl loaded");
 
@@ -9,13 +9,27 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($sc
   $scope.jPselectedOption = [];
 
 
+  //check to see if # of answers == # of questions
+  $scope.answers = 0;
+  $scope.check = function(val,idx) {
+    if(!val[idx]){
+      $scope.answers += 1;
+    }
+    console.log('answers', $scope.answers);
+  }
+
+
   //scores assessment and returns user type with percentages
   $scope.submitResponse = function() {
 
-    console.log("questions: ", $scope.numberOfQuestions);
-    console.log("number of responses: ", $scope.numberOfResponses);
-
-
+    console.log("$scope.eIselectedOption", $scope.eIselectedOption.length, $scope.eIselectedOption);
+    console.log("$scope.sNselectedOption", $scope.sNselectedOption.length, $scope.sNselectedOption);
+    console.log("$scope.tFselectedOption", $scope.tFselectedOption.length, $scope.tFselectedOption);
+    console.log("$scope.jPselectedOption", $scope.jPselectedOption.length, $scope.jPselectedOption);
+    console.log("$scope.ei.length", $scope.ei.length);
+    console.log("$scope.sn.length", $scope.sn.length);
+    console.log("$scope.tf.length", $scope.tf.length);
+    console.log("$scope.jp.length", $scope.jp.length);
 
     var eIstring = $scope.eIselectedOption.toString();
     var sNstring = $scope.sNselectedOption.toString();
@@ -46,7 +60,7 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($sc
       } else if (i > e) {
         var e_i = "I"
       } else {
-        var e_i = "Balanced"
+        var e_i = "Whoops"
       }
 
       if (s > n) {
@@ -54,15 +68,15 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($sc
       } else if (n > s) {
         var s_n = "N"
       } else {
-        var s_n = "Balanced"
+        var s_n = "Whoops"
       }
 
       if (t > f) {
         var t_f = "T"
       } else if (f > t) {
-        var t=f = "F"
+        var t_f = "F"
       } else {
-        var t_f = "Balanced"
+        var t_f = "Whoops"
       }
 
       if (j > p) {
@@ -70,7 +84,7 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($sc
       } else if (p > j) {
         var j_p = "P"
       } else {
-        var j_p = "Balanced"
+        var j_p = "Whoops"
       }
 
       return e_i + s_n + t_f + j_p;
@@ -80,9 +94,32 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($sc
     var userType = getType(eCount, iCount, sCount, nCount, tCount, fCount, jCount, pCount);
     console.log(userType);
 
-    //SAVE userType TO DATABASE HERE
+
+    //updates user type to database
+    if ($rootScope.currentUser) {
+      $http.put('/api/userinfo/' + $rootScope.currentUser.id, {type: userType}).success(function(data){
+        console.log(data);
+      }).error(function(err){
+        console.log(err);
+      });
+    } else {
+      alert("Please login with Facebook to use Mozaiq.");
+    }
+
 
     $scope.userType = userType;
+
+
+    UserService.check(function(err,data){
+      //retrieves current user's type
+      $http.get('/api/userinfo/' + UserService.currentUser.id).success(function(data){
+        var type = data.type
+        $rootScope.currentUserType = type;
+        console.log(data.type);
+      }).error(function(err){
+        console.log(err);
+      })
+    });
 
 
     $scope.ePercent = Math.round((eCount / (eCount + iCount)) * 100);
@@ -143,19 +180,6 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($sc
       $scope.jp.push(q);
     }
   }
-
-
-  //CHECKING THAT ALL QUESTIONS HAVE BEEN ANSWERED
-  $scope.numberOfQuestions = $scope.ei.length + $scope.sn.length + $scope.tf.length + $scope.jp.length;
-  $scope.numberOfResponses = $scope.eIselectedOption.length + $scope.sNselectedOption.length + $scope.tFselectedOption.length + $scope.jPselectedOption;
-
-  // console.log("questions: ", $scope.numberOfQuestions);
-  // console.log("number of responses: ", $scope.numberOfResponses);
-
-
-
-
-
 
 
 
@@ -361,32 +385,32 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($sc
   //   asked: 0
   // },
 
-  {
-    dichotomy: "sn",
-    question: "When I run a meeting, I am usually",
-    s: "disciplined about following my prepared agenda.",
-    n: "flexible and open to whatever comes up.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "sn",
+  //   question: "When I run a meeting, I am usually",
+  //   s: "disciplined about following my prepared agenda.",
+  //   n: "flexible and open to whatever comes up.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "sn",
-    question: "I prefer meetings where most time is spent on",
-    s: "the application of the ideas discussed.",
-    n: "the ideas themselves.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "sn",
+  //   question: "I prefer meetings where most time is spent on",
+  //   s: "the application of the ideas discussed.",
+  //   n: "the ideas themselves.",
+  //   response: "",
+  //   asked: 0
+  // },
 
-  {
-    dichotomy: "sn",
-    question: "If my boss gives me a difficult task, I usually",
-    s: "collect as much information as possible before starting.",
-    n: "dive in and rely on my ability to work things out.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "sn",
+  //   question: "If my boss gives me a difficult task, I usually",
+  //   s: "collect as much information as possible before starting.",
+  //   n: "dive in and rely on my ability to work things out.",
+  //   response: "",
+  //   asked: 0
+  // },
 
   // {
   //   dichotomy: "sn",
@@ -532,32 +556,32 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($sc
   //   asked: 0
   // },
 
-  // {
-  //   dichotomy: "sn",
-  //   question: "My leadership style is best described as",
-  //   s: "practical.",
-  //   n: "visionary.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "sn",
+    question: "My leadership style is best described as",
+    s: "practical.",
+    n: "visionary.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "sn",
-  //   question: "I prefer a work situation that is",
-  //   s: "stable with little change.",
-  //   n: "full of change.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "sn",
+    question: "I prefer a work situation that is",
+    s: "stable with little change.",
+    n: "full of change.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "sn",
-  //   question: "When I think of my most important work assets, they are",
-  //   s: "more in the realm of the practical.",
-  //   n: "more inclined toward the realm of ideas.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "sn",
+    question: "When I think of my most important work assets, they are",
+    s: "more in the realm of the practical.",
+    n: "more inclined toward the realm of ideas.",
+    response: "",
+    asked: 0
+  },
 
   {
     dichotomy: "tf",
@@ -586,176 +610,176 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($sc
     asked: 0
   },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "In a team meeting, I prefer to emphasize",
-  //   t: "an analytical discussion of the facts.",
-  //   f: "a discussion of the values involved.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "In a team meeting, I prefer to emphasize",
+    t: "an analytical discussion of the facts.",
+    f: "a discussion of the values involved.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "If I have to confront colleagues or subordinates, I am usually",
-  //   t: "interested in making sure I give them the facts accurately.",
-  //   f: "more interested in making sure I don't hurt their feelings.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "If I have to confront colleagues or subordinates, I am usually",
+    t: "interested in making sure I give them the facts accurately.",
+    f: "more interested in making sure I don't hurt their feelings.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "When I have a decision to make at work, I usually",
-  //   t: "reason it through regardless of my feelings.",
-  //   f: "consider my feelings to be very important.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "When I have a decision to make at work, I usually",
+    t: "reason it through regardless of my feelings.",
+    f: "consider my feelings to be very important.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "When faced with a decision at work, I usually prefer to",
-  //   t: "think things through.",
-  //   f: "trust my gut feelings.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "When faced with a decision at work, I usually prefer to",
+    t: "think things through.",
+    f: "trust my gut feelings.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "When faced with a decision at work, I usually",
-  //   t: "focus on the facts and figures above all.",
-  //   f: "give careful attention to people's feelings.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "When faced with a decision at work, I usually",
+    t: "focus on the facts and figures above all.",
+    f: "give careful attention to people's feelings.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "If someone argues with a policy or decision I make, I usually",
-  //   t: "remain firm.",
-  //   f: "seek to avoid unpleasantness, anger, and disharmony.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "If someone argues with a policy or decision I make, I usually",
+    t: "remain firm.",
+    f: "seek to avoid unpleasantness, anger, and disharmony.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "When I have a long and complex report to read, I am more likely to",
-  //   t: "be patient and study the details.",
-  //   f: "try to get the general ideas and see how I feel about them.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "When I have a long and complex report to read, I am more likely to",
+    t: "be patient and study the details.",
+    f: "try to get the general ideas and see how I feel about them.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "I prefer to work with colleagues who",
-  //   t: "rely heavily on logic.",
-  //   f: "look more often to their feelings.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "I prefer to work with colleagues who",
+    t: "rely heavily on logic.",
+    f: "look more often to their feelings.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "If I have to deal with a colleague's feelings,  I prefer to be",
-  //   t: "truthful even if I can't be tactful.",
-  //   f: "tactful even if I can't tell the truth.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "If I have to deal with a colleague's feelings,  I prefer to be",
+    t: "truthful even if I can't be tactful.",
+    f: "tactful even if I can't tell the truth.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "When I am at a meeting and a difference of opinion gets heated, I usually",
-  //   t: "defend the side I think is most logical.",
-  //   f: "try to create a harmonious atmosphere and solution.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "When I am at a meeting and a difference of opinion gets heated, I usually",
+    t: "defend the side I think is most logical.",
+    f: "try to create a harmonious atmosphere and solution.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "When I have a meeting with a colleague, I usually",
-  //   t: "get through it quickly in a business-like manner.",
-  //   f: "linger over the sociable interaction.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "When I have a meeting with a colleague, I usually",
+    t: "get through it quickly in a business-like manner.",
+    f: "linger over the sociable interaction.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "When colleagues ask my advice about a work matter, I more often",
-  //   t: "guide them toward a decision based purely on logic.",
-  //   f: "help them explore the values and policies in the situation.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "When colleagues ask my advice about a work matter, I more often",
+    t: "guide them toward a decision based purely on logic.",
+    f: "help them explore the values and policies in the situation.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "When I am putting forward a new idea at work, I more often",
-  //   t: "remain firm about the correctness of it.",
-  //   f: "try to persuade others by appealing to their sense of value.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "When I am putting forward a new idea at work, I more often",
+    t: "remain firm about the correctness of it.",
+    f: "try to persuade others by appealing to their sense of value.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "I am usually more interested in how my colleagues",
-  //   t: "think about problems.",
-  //   f: "feel about problems.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "I am usually more interested in how my colleagues",
+    t: "think about problems.",
+    f: "feel about problems.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "When I hear a presentation from a colleague, I am more likely to be",
-  //   t: "openly and intellectually critical.",
-  //   f: "careful in voicing my opinions, especially when I disagree.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "When I hear a presentation from a colleague, I am more likely to be",
+    t: "openly and intellectually critical.",
+    f: "careful in voicing my opinions, especially when I disagree.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "When I have to make a decision at work, I am more likely to",
-  //   t: "analyze the situation logically without considering my values and feelings.",
-  //   f: "put a strong emphasis on applying my values and feelings to the solution.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "When I have to make a decision at work, I am more likely to",
+    t: "analyze the situation logically without considering my values and feelings.",
+    f: "put a strong emphasis on applying my values and feelings to the solution.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "In a performance appraisal meeting, I am usually more likely to",
-  //   t: "be frank and honest regardless of feelings.",
-  //   f: "try to smooth over any problems and avoid hurt feelings.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "In a performance appraisal meeting, I am usually more likely to",
+    t: "be frank and honest regardless of feelings.",
+    f: "try to smooth over any problems and avoid hurt feelings.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "My colleagues would be more likely to describe my behavior at work as --",
-  //   t: "cool, calm, and objective.",
-  //   f: "warm and feeling.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "My colleagues would be more likely to describe my behavior at work as --",
+    t: "cool, calm, and objective.",
+    f: "warm and feeling.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "tf",
-  //   question: "In a training session or course, I prefer a trainer who depends more on",
-  //   t: "precision and logic.",
-  //   f: "emotion and experience.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "tf",
+    question: "In a training session or course, I prefer a trainer who depends more on",
+    t: "precision and logic.",
+    f: "emotion and experience.",
+    response: "",
+    asked: 0
+  },
 
   {
     dichotomy: "jp",
@@ -784,176 +808,176 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', function($sc
     asked: 0
   },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "I prefer a job in which the rewards are",
-  //   j: "seen clearly in regular periods.",
-  //   p: "stretched out over long periods of time.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "I prefer a job in which the rewards are",
+    j: "seen clearly in regular periods.",
+    p: "stretched out over long periods of time.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "I would rather have a boss who",
-  //   j: "provides a lot of structure and organization.",
-  //   p: "leaves me to do things however they work best for me.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "I would rather have a boss who",
+    j: "provides a lot of structure and organization.",
+    p: "leaves me to do things however they work best for me.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "I prefer my own office to be one in which",
-  //   j: "things are orderly, organized, and systematic,",
-  //   p: "there is a creative array of projects, papers, and books.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "I prefer my own office to be one in which",
+    j: "things are orderly, organized, and systematic,",
+    p: "there is a creative array of projects, papers, and books.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "I prefer the work I do every day to",
-  //   j: "be continuous and relatively predictable.",
-  //   p: "have frequent changes in activities and schedules.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "I prefer the work I do every day to",
+    j: "be continuous and relatively predictable.",
+    p: "have frequent changes in activities and schedules.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "When my boss gives me a new project, I usually prefer",
-  //   j: "a clear statement of what is expected.",
-  //   p: "to be left to work it out the way I want.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "When my boss gives me a new project, I usually prefer",
+    j: "a clear statement of what is expected.",
+    p: "to be left to work it out the way I want.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "When I have made a tough choice at work, I usually",
-  //   j: "am satisfied that it is done.",
-  //   p: "wish that I could remain open to other alternatives.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "When I have made a tough choice at work, I usually",
+    j: "am satisfied that it is done.",
+    p: "wish that I could remain open to other alternatives.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "I prefer my work environment to be",
-  //   j: "comfortable, predictable, and stable.",
-  //   p: "flexible and changing.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "I prefer my work environment to be",
+    j: "comfortable, predictable, and stable.",
+    p: "flexible and changing.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "If someone on my team is late with a scheduled task, I usually",
-  //   j: "get impatient and annoyed.",
-  //   p: "look for ways to stretch the deadlines.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "If someone on my team is late with a scheduled task, I usually",
+    j: "get impatient and annoyed.",
+    p: "look for ways to stretch the deadlines.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "I prefer projects that",
-  //   j: "have a clear ending date when I know they will be finished.",
-  //   p: "may remain open-ended to ensure that all bases are covered.",
-  //   response: "",
-  //   asked: 0
-  // }
-// ,
-  // {
-  //   dichotomy: "jp",
-  //   question: "When I get a new project, I usually prefer to",
-  //   j: "get to it and complete it as quickly as possible.",
-  //   p: "move as slowly as allowable and explore various approaches.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "I prefer projects that",
+    j: "have a clear ending date when I know they will be finished.",
+    p: "may remain open-ended to ensure that all bases are covered.",
+    response: "",
+    asked: 0
+  }
+  ,
+  {
+    dichotomy: "jp",
+    question: "When I get a new project, I usually prefer to",
+    j: "get to it and complete it as quickly as possible.",
+    p: "move as slowly as allowable and explore various approaches.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "I would rather be in a job with",
-  //   j: "activities requiring me to reach a conclusion.",
-  //   p: "activities that allow me to stay open to my experience.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "I would rather be in a job with",
+    j: "activities requiring me to reach a conclusion.",
+    p: "activities that allow me to stay open to my experience.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "When I am in a meeting, I am usually more interested in",
-  //   j: "getting the job done as quickly as possible.",
-  //   p: "spending time making sure everyone gets heard.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "When I am in a meeting, I am usually more interested in",
+    j: "getting the job done as quickly as possible.",
+    p: "spending time making sure everyone gets heard.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "If my boss insists that I schedule my workday, I feel",
-  //   j: "satisfied I am organized.",
-  //   p: "uncomfortable that I am constrained.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "If my boss insists that I schedule my workday, I feel",
+    j: "satisfied I am organized.",
+    p: "uncomfortable that I am constrained.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "When a new and unusual policy announcement is issued at work, I am usually",
-  //   j: "annoyed or otherwise upset at the changes.",
-  //   p: "interested in seeing how I will handle the new environment.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "When a new and unusual policy announcement is issued at work, I am usually",
+    j: "annoyed or otherwise upset at the changes.",
+    p: "interested in seeing how I will handle the new environment.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "If they couldn't be both, I would rather have colleagues who are",
-  //   j: "well-organized.",
-  //   p: "spontaneous.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "If they couldn't be both, I would rather have colleagues who are",
+    j: "well-organized.",
+    p: "spontaneous.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "When I present my views in a meeting, I am usually",
-  //   j: "decisive.",
-  //   p: "open to having others suggest changes and other views.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "When I present my views in a meeting, I am usually",
+    j: "decisive.",
+    p: "open to having others suggest changes and other views.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "When I am discussing an important issue at a meeting, I usually",
-  //   j: "try to reach a definite conclusion quickly.",
-  //   p: "keep the options open.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "When I am discussing an important issue at a meeting, I usually",
+    j: "try to reach a definite conclusion quickly.",
+    p: "keep the options open.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "At work, I prefer projects",
-  //   j: "on which I work quickly to make a short deadline.",
-  //   p: "that have longer and more flexible deadlines.",
-  //   response: "",
-  //   asked: 0
-  // },
+  {
+    dichotomy: "jp",
+    question: "At work, I prefer projects",
+    j: "on which I work quickly to make a short deadline.",
+    p: "that have longer and more flexible deadlines.",
+    response: "",
+    asked: 0
+  },
 
-  // {
-  //   dichotomy: "jp",
-  //   question: "I usually push my colleagues or subordinates for --",
-  //   j: "quick decisions.",
-  //   p: "thorough review, even at the risk of delaying decisions.",
-  //   response: "",
-  //   asked: 0
-  // }
+  {
+    dichotomy: "jp",
+    question: "I usually push my colleagues or subordinates for --",
+    j: "quick decisions.",
+    p: "thorough review, even at the risk of delaying decisions.",
+    response: "",
+    asked: 0
+  }
 
   ];
 

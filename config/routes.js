@@ -52,12 +52,12 @@
 
 
 
-  // "get *":{
-  //   controller:"PagesController",
-  //   action:"index",
-  //   skipAssets: true,
-  //   skipRegex: /^\/api\/.*$/
-  // }
+  "get *":{
+    controller:"PagesController",
+    action:"index",
+    skipAssets: true,
+    skipRegex: /^\/api\/.*$/
+  }
 
   /***************************************************************************
   *                                                                          *

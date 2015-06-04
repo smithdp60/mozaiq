@@ -1,26 +1,108 @@
 body {
-  /*background-color: #ababab;*/
+  background-image: url("/images/abstract1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Noto Sans', sans-serif;
+  padding-top: 80px;
+  padding-bottom: 70px;
 }
 
-#logo-small {
-  width: 50px;
-  display: inline;
+nav {
+  box-shadow: 0 3px 15px rgba(0,0,0,.3);
 }
 
-#logo {
-  max-height: 84vh;
-  max-width: 90vw;
+.navbar-default {
+  background-color: rgba(255,255,255,.9);
+}
+
+div.navbar-header a.navbar-brand {
+  color: #222222;
+  padding-top: 14px;
 }
 
 .profile-pic {
   border-radius: 50%;
-  width: 30px;
+  width: 40px;
 }
 
 .btn {
   white-space:normal !important;
   border-radius: 0;
   margin: 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #222222;
+}
+
+a.btn {
+  color: #222222;
+  border: none;
+  background-color: none;
+}
+
+.tab-style {
+  background-color: rgba(255,255,255,.9);
+  border-radius: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,.3);
+}
+
+.type-data p {
+  /*padding-top: 10px;
+  padding-bottom: 10px;*/
+}
+
+.type-data ul {
+  padding-left: 18px;
+}
+
+ul.nav.nav-tabs {
+  margin-bottom: 15px;
+}
+
+
+
+.dashboard {
+  background-color: rgba(255,255,255,.9);
+  border-radius: 10px;
+  padding-bottom: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,.3);
+}
+
+.assessment {
+  background-color: rgba(255,255,255,.9);
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,.3);
+}
+
+.assessment h1 {
+  margin-top: 0;
+}
+
+#submit-button {
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+#result-header {
+  margin-top: 15px;
+}
+
+#result-button {
+  margin-bottom: 10px;
+  font-size: 2em;
+  border-radius: 8px;
+  color: white;
+  width: 100%;
+}
+
+
+/*ASSESSMENT STYLE FIX*/
+.btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
+  margin-left: 0;
 }
 

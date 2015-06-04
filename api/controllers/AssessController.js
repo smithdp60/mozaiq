@@ -7,9 +7,9 @@
 
  module.exports = {
 
-  // var updateType = function(req, res) {
-  //   User.update({id: },{type:'yes'}).exec(console.log)
-  // }
+  index: function(req, res) {
+    res.view('views/assess/index');
+  },
 
 
 };

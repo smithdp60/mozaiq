@@ -1,11 +1,11 @@
 <div class="container" ng-controller="TypeCtrl">
-  <h1 class="text-center">{{userType}}</h1>
 
 
-  <div class="col-md-offset-2 col-md-8">
-    <tabset>
-      <tab ng-repeat="tab in type" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
-        <span ng-bind-html="tab.content | unsafe" class="text-justify"></span>
+  <div class="col-md-offset-2 col-md-8 tab-style">
+    <h1 class="text-center">{{type}}</h1>
+    <tabset class="type-data">
+      <tab ng-repeat="tab in typeData" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+        <span ng-bind-html="tab.content | unsafe" class="text-justify type-data"></span>
       </tab>
     </tabset>
   </div>

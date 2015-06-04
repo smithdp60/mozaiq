@@ -1,15 +1,25 @@
 var mozaiqApp = angular.module("mozaiqApp", ['ngRoute', 'ngResource', 'ui.bootstrap']);
 
-
-mozaiqApp.run(['$rootScope', 'UserService', function($rootScope, UserService){
+mozaiqApp.run(['$rootScope', 'UserService', '$http', function($rootScope, UserService, $http){
 
   console.log("mozaiqApp is up and running!");
 
   UserService.check(function(err,data){
 
+    //retrieves current user's info and picture
     $rootScope.currentUser = UserService.currentUser;
     $rootScope.currentUserPic = "https://graph.facebook.com/" + UserService.currentUser.id + "/picture";
-    console.log($rootScope.currentUser);
+    console.log("$rootScope.currentUser: ", $rootScope.currentUser);
+
+    //retrieves current user's type
+    $http.get('/api/userinfo/' + UserService.currentUser.id).success(function(data){
+      var type = data.type
+      $rootScope.currentUserType = type;
+      console.log(data.type);
+    }).error(function(err){
+      console.log(err);
+    })
+
   });
 
 }])
@@ -27,8 +37,12 @@ mozaiqApp.config(['$routeProvider', '$locationProvider', function($routeProvider
     templateUrl: '/views/assess/index.html',
     controller: 'AssessCtrl'
   })
-  .when('/type', {
+  .when('/type/:type', {
     templateUrl: '/views/type/index.html',
+    controller: 'TypeCtrl'
+  })
+  .when('/dashboard', {
+    templateUrl: '/views/dashboard/index.html',
     controller: 'HomeCtrl'
   })
   // .otherwise({
