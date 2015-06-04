@@ -17,7 +17,7 @@
     </div>
 
 
-    <div ng-repeat="f in friendsArray | filter:query">
+    <div ng-repeat="f in friendsArray | filter: query | orderBy: f[1]">
       <div class="col-md-2 text-center user-on-friends" ng-show="f[2]">
 
         <a href="/type/{{f[2]}}">
