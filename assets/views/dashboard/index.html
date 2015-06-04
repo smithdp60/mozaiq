@@ -7,7 +7,7 @@
 
     <div class="col-md-1 text-center">
       <a href="/type/{{$root.currentUserType}}">
-        <img ng-src="https://graph.facebook.com/{{$root.currentUserPic}}/picture" class="profile-pic"><br>
+        <img ng-src={{$root.currentUserPic}} class="profile-pic"><br>
         {{$root.currentUser.name}}<br>
         <span class="badge" ng-show="$root.currentUserType">{{$root.currentUserType}}</span>
       </a>
@@ -17,7 +17,7 @@
       <div class="col-md-1 text-center" ng-show="f[2]">
 
         <a href="/type/{{f[2]}}">
-          <img ng-src={{f[0]}} class="profile-pic"><br>
+          <img ng-src="https://graph.facebook.com/{{f[0]}}/picture" class="profile-pic"><br>
           {{f[1]}}<br>
           <span class="badge">{{f[2]}}</span>
         </a>
