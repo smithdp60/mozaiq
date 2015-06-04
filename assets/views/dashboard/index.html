@@ -5,7 +5,7 @@
 
     <h1 class="text-center">Dashboard</h1>
 
-    <div class="col-md-1 text-center">
+    <div class="col-md-2 text-center">
       <a href="/type/{{$root.currentUserType}}">
         <img ng-src={{$root.currentUserPic}} class="profile-pic"><br>
         {{$root.currentUser.name}}<br>
@@ -14,7 +14,7 @@
     </div>
 
     <div ng-repeat="f in friendsArray">
-      <div class="col-md-1 text-center" ng-show="f[2]">
+      <div class="col-md-2 text-center" ng-show="f[2]">
 
         <a href="/type/{{f[2]}}">
           <img ng-src="https://graph.facebook.com/{{f[0]}}/picture" class="profile-pic"><br>
