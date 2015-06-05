@@ -67,10 +67,10 @@
               } else {
                 allFriends.push(friendTestArray);
                 friendTestArray = [];
-                res.send(JSON.stringify(allFriends));
               }
             })
           }
+          res.send(JSON.stringify(allFriends));
 
         }
       });
