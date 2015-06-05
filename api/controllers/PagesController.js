@@ -38,7 +38,14 @@
         if(err) {
           console.log("Error: " + JSON.stringify(err));
         } else {
-          res.send(JSON.stringify(data));
+          // res.send(JSON.stringify(data));
+          var friendTestArray = [];
+          data.forEach(function(friend, idx, array){
+            UserInfo.findOne({id: friend.id}).then(function(data) {
+              friendTestArray.push(data);
+            })
+          })
+          res.send(JSON.stringify(friendTestArray));
         }
       });
     })
