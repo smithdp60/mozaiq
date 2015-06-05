@@ -22,6 +22,11 @@ mozaiqApp.run(['$rootScope', 'UserService', '$http', function($rootScope, UserSe
 
   });
 
+
+  UserService.friends(function(err,data) {
+    // console.log("friends: ", data);
+  })
+
 }])
 
 mozaiqApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
