@@ -58,6 +58,7 @@
           var allFriends = [];
           var friendTestArray = [];
 
+          //currently, this only pulls the first entry.
           for (i = 0; i < data.length; i += 1) {
             UserInfo.findOne({id: data[i].id}).then(function(d) {
               // friendTestArray = d;

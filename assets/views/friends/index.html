@@ -18,12 +18,12 @@
     {{friendsArray}}
 
     <div ng-repeat="f in (friendsArray | filter: query | orderBy: f[1]) track by $index">
-      <div class="col-md-2 text-center user-on-friends" ng-show="f[3]">
+      <div class="col-md-2 text-center user-on-friends" ng-show="f[2]">
 
         <a href="/type/{{f[2]}}">
           <img ng-src="https://graph.facebook.com/{{f[0]}}/picture" class="profile-pic"><br>
-          {{f[1]}} {{f[2]}}<br>
-          <span class="badge badge-primary">{{f[3]}}</span>
+          {{f[1]}}<br>
+          <span class="badge badge-primary">{{f[2]}}</span>
         </a>
       </div>
     </div>
