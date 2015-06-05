@@ -664,14 +664,14 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', '$http', 'Us
     asked: 0
   },
 
-  {
-    dichotomy: "tf",
-    question: "When I have a long and complex report to read, I am more likely to",
-    t: "be patient and study the details.",
-    f: "try to get the general ideas and see how I feel about them.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "tf",
+  //   question: "When I have a long and complex report to read, I am more likely to",
+  //   t: "be patient and study the details.",
+  //   f: "try to get the general ideas and see how I feel about them.",
+  //   response: "",
+  //   asked: 0
+  // },
 
   {
     dichotomy: "tf",
@@ -907,14 +907,14 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', '$http', 'Us
     asked: 0
   },
 
-  {
-    dichotomy: "jp",
-    question: "When I am in a meeting, I am usually more interested in",
-    j: "getting the job done as quickly as possible.",
-    p: "spending time making sure everyone gets heard.",
-    response: "",
-    asked: 0
-  },
+  // {
+  //   dichotomy: "jp",
+  //   question: "When I am in a meeting, I am usually more interested in",
+  //   j: "getting the job done as quickly as possible.",
+  //   p: "spending time making sure everyone gets heard.",
+  //   response: "",
+  //   asked: 0
+  // },
 
   {
     dichotomy: "jp",
