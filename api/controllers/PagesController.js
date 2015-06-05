@@ -57,8 +57,8 @@
 
           // res.send(JSON.stringify(data[0].id));
 
-          // var allFriends = [];
-          // var friendTestArray = [];
+          var allFriends = [];
+          var friendTestArray = [];
 
           // console.log("allFriends", allFriends, "friendTestArray", friendTestArray);
 
@@ -73,7 +73,6 @@
                 allFriends.push(friendTestArray);
                 console.log("friendTestArray", friendTestArray);
                 friendTestArray = [];
-
                 res.send(JSON.stringify(allFriends));
               }
             })
