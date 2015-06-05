@@ -25,9 +25,7 @@ mozaiqApp.controller('FriendsCtrl', ['$scope', '$rootScope', 'UserService', '$ht
       // friendArray.push(friendName);
       // friendArray.push(friendId, friendName); //trying to push by index instead
       $http.get('/api/userinfo/' + friendId).success(function(data){
-        if (data.type) {
-          friendsArray.push(data);
-        }
+        friendsArray.push(data);
       }).error(function(err){
         console.log(err);
       })
