@@ -25,13 +25,19 @@ mozaiqApp.controller('FriendsCtrl', ['$scope', '$rootScope', 'UserService', '$ht
       // friendArray.push(friendName);
       // friendArray.push(friendId, friendName); //trying to push by index instead
       $http.get('/api/userinfo/' + friendId).success(function(data){
-        friendsArray.push(data);
+        if (data.type) {
+          friendArray.push(data.id);
+          friendArray.push(data.first_name);
+          friendArray.push(data.last_name);
+          friendArray.push(data.type);
+          friendsArray.push(friendArray);
+          $scope.friendsArray = friendsArray;
+        }
       }).error(function(err){
         console.log(err);
       })
     }
-    $scope.friendsArray = friendsArray;
-    console.log("friends: ", $scope.friendsArray);
+    console.log("friends: ", friendsArray);
   });
 
 }]);
