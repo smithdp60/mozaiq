@@ -4,41 +4,46 @@ mozaiqApp.controller('FriendsCtrl', ['$scope', '$rootScope', 'UserService', '$ht
 
   UserService.friends(function(err,data){
 
-    data = [
-    {
-      id: "10205730082203000",
-      feed: { },
-      name: "Katie Gilmur"
-    },
-    {
-      id: "10205730082203000",
-      feed: { },
-      name: "Allie Moses"
-    }
-    ]
+    // data = [
+    // {
+    //   id: "10205730082203000",
+    //   feed: { },
+    //   name: "Katie Gilmur"
+    // },
+    // {
+    //   id: "10205730082203000",
+    //   feed: { },
+    //   name: "Allie Moses"
+    // }
+    // ]
 
-    console.log(data);
+    // console.log(data);
 
 
 
-    var friendsArray = [];
+    // var friendsArray = [];
+    // var friendArray = [];
 
-    for (var key in data) {
-      var friendArray = [];
-      // var f = data[key].id;
-      // var friendId = f.id;
-      // friendArray.push(friendId);
-      // var friendName = data[key].name;
-      // friendArray.push(friendName);
-      $http.get('/api/userinfo/' + data[key].id).success(function(data2){
-        friendArray.push(data[key].id, data[key].name, data2.type);
-        friendsArray.push(friendArray);
-      }).error(function(err){
-        console.log(err);
-      })
-    }
-    $scope.friendsArray = friendsArray;
-    console.log("friends: ", friendsArray);
+    // for (i = 0; i < data.length; i+=1) {
+    //   // var f = data[key].id;
+    //   // var friendId = f.id;
+    //   // friendArray.push(friendId);
+    //   var friendName = data[i].name;
+    //   console.log(friendName)
+    //   $http.get('/api/userinfo/' + data[i].id).success(function(data2){
+    //     if (friendArray.length < 3) {
+    //       friendArray.push(data2.id, friendName, data2.type);
+    //     } else if (friendArray.length == 3) {
+    //       friendsArray.push(friendArray);
+    //       friendArray = [];
+    //     }
+    //     $scope.friendsArray = friendsArray;
+    //     console.log("friends: ", friendsArray);
+    //   })
+    // }
+
+
+    $scope.friendsArray = data;
 
 
   });

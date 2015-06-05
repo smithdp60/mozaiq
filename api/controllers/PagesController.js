@@ -38,16 +38,41 @@
         if(err) {
           console.log("Error: " + JSON.stringify(err));
         } else {
-          res.send(JSON.stringify(data));
-          // var friendTestArray = [];
-          // data.forEach(function(friend, idx, array){
-          //   UserInfo.findOne({id: friend.id}).then(function(data) {
-          //     friendTestArray.push(data);
-          //   })
-          // })
-          // res.send(JSON.stringify(friendTestArray));
+
+
+          // data = [
+          // {
+          //   id: "10205730082203000",
+          //   feed: { },
+          //   name: "Katie Gilmur"
+          // },
+          // {
+          //   id: "10205730082203000",
+          //   feed: { },
+          //   name: "Allieeeee Moses"
+          // }
+          // ]
+
+          // res.send(JSON.stringify(data[0].id));
+
+          var allFriends = [];
+          var friendTestArray = [];
+
+          for (i = 0; i < data.length; i += 1) {
+            UserInfo.findOne({id: data[i].id}).then(function(d) {
+              // friendTestArray = d;
+              if (friendTestArray.length < 3) {
+                friendTestArray.push(d.id, d.first_name + " " + d.last_name, d.type);
+              } else {
+                allFriends.push(friendTestArray);
+                friendTestArray = [];
+                res.send(JSON.stringify(allFriends));
+              }
+            })
+          }
+
         }
       });
-    })
-  }
+})
+}
 }

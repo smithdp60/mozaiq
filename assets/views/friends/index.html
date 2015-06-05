@@ -15,7 +15,7 @@
         <span class="badge badge-primary" ng-show="$root.currentUserType">{{$root.currentUserType}}</span>
       </a>
     </div>
-
+    {{friendsArray}}
 
     <div ng-repeat="f in (friendsArray | filter: query | orderBy: f[1]) track by $index">
       <div class="col-md-2 text-center user-on-friends" ng-show="f[3]">
