@@ -35,9 +35,9 @@ mozaiqApp.controller('FriendsCtrl', ['$scope', '$rootScope', 'UserService', '$ht
         console.log(err);
       })
       friendsArray.push(friendArray);
-      $scope.friendsArray = friendsArray
-      console.log("friends: ", friendsArray)
     }
+    $scope.friendsArray = friendsArray
+    console.log("friends: ", friendsArray)
   });
 
 }]);
