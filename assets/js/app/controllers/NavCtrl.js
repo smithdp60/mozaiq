@@ -1,5 +1,7 @@
 mozaiqApp.controller('NavCtrl', ['$scope', '$window', function($scope, $window){
 
+  $scope.navbarCollapsed = true;
+
   $scope.fbLogin = function() {
     $window.location.href = '/auth/facebook';
   }

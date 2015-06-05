@@ -1,3 +1,27 @@
-<div class="container text-center">
+<div class="container" ng-controller="NavCtrl">
+
+  <div class="jumbotron col-md-offset-2 col-md-8" id="mozaiq-splash">
+    <h1 class="text-center" id="mozaiq-big">Mozaiq</h1>
+    <h4 class="text-center">Personality Assessment and Discovery</h4>
+
+    <hr>
+    <blockquote class="text-center">
+      <p>&ldquo;I have no special talent. I am only passionately curious.&rdquo;</p>
+      <footer>Albert Einstein</footer>
+    </blockquote>
+
+    <p class="text-center">
+
+      <button ng-hide="$root.currentUser" ng-click="fbLogin()" class="btn btn-primary btn-lg" href="#" role="button"><i class="fa fa-facebook-official"></i> Facebook Login</button>
+
+      <span ng-show="$root.currentUser">
+        <a ng-hide="$root.currentUserType" class="btn btn-primary btn-lg" href="/assess" role="button">Discover Your Type</a>
+
+        <a ng-show="$root.currentUserType" class="btn btn-primary btn-lg" href="/friends" role="button">Discover Friends' Types</a>
+      </span>
+
+    </p>
+  </div>
+
 
 </div>

@@ -23,9 +23,9 @@ mozaiqApp.run(['$rootScope', 'UserService', '$http', function($rootScope, UserSe
   });
 
 
-  UserService.friends(function(err,data) {
-    // console.log("friends: ", data);
-  })
+  // UserService.friends(function(err,data) {
+  //   // console.log("friends: ", data);
+  // })
 
 }])
 

@@ -1,18 +1,34 @@
 body {
-  background-image: url("/images/abstract1.jpg");
+  background-image: url("/images/abstract2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center middle;
   font-family: 'Noto Sans', sans-serif;
   padding-top: 80px;
 }
 
+#mozaiq-splash {
+  background-color: rgba(255,255,255,.85);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,.3);
+}
+
+blockquote {
+  border-left: none;
+}
+
+#mozaiq-big {
+  margin-top: 0;
+  font-size: 7em;
+}
+
 nav {
-  box-shadow: 0 3px 15px rgba(0,0,0,.3);
+  box-shadow: 0 3px 15px rgba(0,0,0,.4);
 }
 
 .navbar-default {
-  background-color: rgba(255,255,255,.9);
+  background-color: rgba(255,255,255,.85);
 }
 
 div.navbar-header a.navbar-brand {
@@ -46,8 +62,12 @@ a.btn {
   background-color: none;
 }
 
+a.btn-lg {
+  color: #ffffff;
+}
+
 .tab-style {
-  background-color: rgba(255,255,255,.9);
+  background-color: rgba(255,255,255,.85);
   border-radius: 10px;
   padding-bottom: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,.3);
@@ -74,7 +94,7 @@ ul.nav.nav-tabs {
 
 
 .friends {
-  background-color: rgba(255,255,255,.9);
+  background-color: rgba(255,255,255,.85);
   border-radius: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -98,7 +118,7 @@ ul.nav.nav-tabs {
 }
 
 .assessment {
-  background-color: rgba(255,255,255,.9);
+  background-color: rgba(255,255,255,.85);
   border-radius: 10px;
   padding-top: 20px;
   padding-bottom: 25px;
