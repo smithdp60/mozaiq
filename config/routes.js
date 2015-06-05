@@ -51,8 +51,6 @@
   'get /auth/:provider/:action': 'AuthController.callback',
 
 
-
-
   "get *":{
     controller:"PagesController",
     action:"index",

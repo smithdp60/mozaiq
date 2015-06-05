@@ -38,6 +38,10 @@ mozaiqApp.config(['$routeProvider', '$locationProvider', function($routeProvider
     templateUrl: '/views/home.html',
     controller: 'HomeCtrl'
   })
+  .when('/_=_', {
+    templateUrl: '/views/home.html',
+    controller: 'HomeCtrl'
+  })
   .when('/assess', {
     templateUrl: '/views/assess/index.html',
     controller: 'AssessCtrl'
@@ -54,8 +58,8 @@ mozaiqApp.config(['$routeProvider', '$locationProvider', function($routeProvider
     templateUrl: '/views/friends/index.html',
     controller: 'FriendsCtrl'
   })
-  // .otherwise({
-  //   templateUrl: '/views/404.html'
-  // })
+  .otherwise({
+    templateUrl: '/views/404.html'
+  })
 
 }]);

@@ -42,21 +42,6 @@
 
           // res.send(data);
 
-          // data = [
-          // {
-          //   id: "10205730082203000",
-          //   feed: { },
-          //   name: "Katie Gilmur"
-          // },
-          // {
-          //   id: "10205730082203000",
-          //   feed: { },
-          //   name: "Allieeeee Moses"
-          // }
-          // ]
-
-          // res.send(JSON.stringify(data[0].id));
-
           var allFriends = [];
           var friendTestArray = [];
 
@@ -65,7 +50,6 @@
           //currently, this only pulls the first entry.
           for (i = 0; i < data.length; i += 1) {
             UserInfo.findOne({id: data[i].id}).then(function(d) {
-              // friendTestArray = d;
               if (friendTestArray.length < 3) {
                 friendTestArray.push(d.id, d.first_name + " " + d.last_name, d.type);
                 console.log("friendTestArray inside loop", friendTestArray);
