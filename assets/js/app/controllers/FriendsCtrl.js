@@ -30,13 +30,13 @@ mozaiqApp.controller('FriendsCtrl', ['$scope', '$rootScope', 'UserService', '$ht
           friendArray.push(data.first_name);
           friendArray.push(data.last_name);
           friendArray.push(data.type);
-          friendsArray.push(friendArray);
-          $scope.friendsArray = friendsArray
-          console.log("friends: ", friendsArray)
         }
       }).error(function(err){
         console.log(err);
       })
+      friendsArray.push(friendArray);
+      $scope.friendsArray = friendsArray
+      console.log("friends: ", friendsArray)
     }
   });
 
