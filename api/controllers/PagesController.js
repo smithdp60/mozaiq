@@ -59,7 +59,7 @@
           var friendTestArray = [];
 
           for (i = 0; i < data.length; i += 1) {
-            UserInfo.findOne({id: data[i].id}).then(function(d) {
+            UserInfo.find({id: data[i].id}).exec(function(d) {
               // friendTestArray = d;
               if (friendTestArray.length < 3) {
                 friendTestArray.push(d.id, d.first_name + " " + d.last_name, d.type);
