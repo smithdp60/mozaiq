@@ -112,6 +112,7 @@ ul.nav.nav-tabs {
 .current-user-on-friends, .user-on-friends {
   padding-top: 10px;
   padding-bottom: 10px;
+  height: 160px;
 }
 
 .badge-primary {

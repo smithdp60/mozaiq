@@ -8,7 +8,7 @@
 
     <input type="text" id="search-bar" class="form-control" ng-model="query" placeholder="Search by name or type"/><br>
 
-    <div class="col-md-2 text-center current-user-on-friends">
+    <div class="col-md-3 text-center current-user-on-friends">
       <a href="/type/{{$root.currentUserType}}">
         <img ng-src={{$root.currentUserPic}} class="profile-pic"><br>
         {{$root.currentUser.name}}<br>
@@ -17,12 +17,12 @@
     </div>
 
     <div ng-repeat="f in (friendsArray | filter: query | orderBy: f.name) track by $index">
-      <div class="col-md-2 text-center user-on-friends">
+      <div class="col-md-3 text-center user-on-friends">
 
         <a href="/type/{{f.id}}">
           <img ng-src="https://graph.facebook.com/{{f.id}}/picture" class="profile-pic"><br>
-          {{f.name}}<br ng-show="f.id">
-          <span ng-show="f" class="badge badge-primary">{{f.id}}</span>
+          {{f.name}}<br ng-show="f.type">
+          <span ng-show="f" class="badge badge-primary">{{f.type}}</span>
         </a>
       </div>
     </div>
