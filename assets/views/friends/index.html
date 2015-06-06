@@ -16,13 +16,13 @@
       </a>
     </div>
 
-    <div ng-repeat="f in (friendsArray | filter: query | orderBy: f[1]) track by $index">
+    <div ng-repeat="f in (friendsArray | filter: query | orderBy: f.name) track by $index">
       <div class="col-md-2 text-center user-on-friends">
 
-        <a href="/type/{{f[2]}}">
-          <img ng-src="https://graph.facebook.com/{{f[0]}}/picture" class="profile-pic"><br>
-          {{f[1]}}<br ng-show="f[2]">
-          <span ng-show="f[2]" class="badge badge-primary">{{f[2]}}</span>
+        <a href="/type/{{f.id}}">
+          <img ng-src="https://graph.facebook.com/{{f.id}}/picture" class="profile-pic"><br>
+          {{f.name}}<br ng-show="f.id">
+          <span ng-show="f" class="badge badge-primary">{{f.id}}</span>
         </a>
       </div>
     </div>
