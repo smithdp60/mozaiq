@@ -40,27 +40,28 @@
         } else {
           console.log("Original data: ", data);
 
-          // res.send(data);
+          res.send(data);
 
-          var allFriends = [];
-          var friendTestArray = [];
+          // var allFriends = [];
+          // var friendTestArray = [];
 
-          // console.log("allFriends", allFriends, "friendTestArray", friendTestArray);
+          // // console.log("allFriends", allFriends, "friendTestArray", friendTestArray);
 
-          //currently, this only pulls the first entry.
-          for (i = 0; i < data.length; i += 1) {
-            UserInfo.findOne({id: data[i].id}).then(function(d) {
-              if (friendTestArray.length < 3) {
-                friendTestArray.push(d.id, d.first_name + " " + d.last_name, d.type);
-                console.log("friendTestArray inside loop", friendTestArray);
-              } else {
-                allFriends.push(friendTestArray);
-                console.log("friendTestArray", friendTestArray);
-                friendTestArray = [];
-                res.send(JSON.stringify(allFriends));
-              }
-            })
-          }
+          // //currently, this only pulls the first entry.
+          // for (i = 0; i < data.length; i += 1) {
+          //   UserInfo.findOne({id: data[i].id}).then(function(d) {
+          //     if (friendTestArray.length < 3) {
+          //       friendTestArray.push(d.id, d.first_name + " " + d.last_name, d.type);
+          //       console.log("friendTestArray inside loop", friendTestArray);
+          //     } else {
+          //       allFriends.push(friendTestArray);
+          //       console.log("friendTestArray", friendTestArray);
+          //       friendTestArray = [];
+          //       res.send(JSON.stringify(allFriends));
+          //     }
+          //   })
+          // }
+
         }
       });
 })
