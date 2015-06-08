@@ -16,8 +16,6 @@
       </a>
     </div>
 
-    {{friendsArray}}
-
     <div ng-repeat="f in (friendsArray | filter: query | orderBy: f.name) track by $index">
       <div class="col-md-3 text-center user-on-friends">
 
