@@ -46,6 +46,6 @@ mozaiqApp.controller('FriendsCtrl', ['$scope', '$rootScope', 'UserService', '$ht
     $scope.friendsArray = data;
 
 
-  });
+});
 
 }]);
