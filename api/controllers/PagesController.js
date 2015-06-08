@@ -40,10 +40,10 @@
         } else {
           console.log("Original data: ", data);
 
-          res.send(data);
+          // res.send(data);
 
-          // var allFriends = [];
-          // var friendTestArray = [];
+          var allFriends = [];
+          var friendTestArray = [];
 
           // // console.log("allFriends", allFriends, "friendTestArray", friendTestArray);
 
