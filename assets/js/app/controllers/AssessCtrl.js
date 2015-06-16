@@ -486,7 +486,7 @@ mozaiqApp.controller('AssessCtrl', ['$scope', '$rootScope', 'Type', '$http', 'Us
 
   {
     dichotomy: "sn",
-    question: "When colleagues and subordinates present ideas to me, I am usually",
+    question: "When colleagues and subordinates present ideas to me, I am usually more interested in",
     s: "immediately useful ideas.",
     n: "ideas with innovative approaches.",
     response: "",
