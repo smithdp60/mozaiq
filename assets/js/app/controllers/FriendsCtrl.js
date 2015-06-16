@@ -1,51 +1,40 @@
-mozaiqApp.controller('FriendsCtrl', ['$scope', '$rootScope', 'UserService', '$http', function($scope, $rootScope, UserService, $http){
+mozaiqApp.controller('FriendsCtrl', ['$scope', '$rootScope', 'UserService', '$http', function($scope, $rootScope, UserService, $http) {
 
-  console.log("FriendsCtrl loaded");
+    console.log("FriendsCtrl loaded");
 
-  UserService.friends(function(err,data){
+    UserService.friends(function(err,data){
 
-    // data = [
-    // {
-    //   id: "10205730082203000",
-    //   feed: { },
-    //   name: "Katie Gilmur"
-    // },
-    // {
-    //   id: "10205730082203000",
-    //   feed: { },
-    //   name: "Allie Moses"
-    // }
-    // ]
+        var friends_list = data;
 
-    // console.log(data);
+        $http.get('/api/userinfo/').success(function(data){
+
+            var userinfo = data;
 
 
+            var friendsArray = [];
 
-    // var friendsArray = [];
-    // var friendArray = [];
+            for (i = 0; i < friends_list.length; i += 1) {
+                for (j = 0; j < userinfo.length; j += 1) {
+                    if (friends_list[i].id == userinfo[j].id) {
+                        friendsArray.push(userinfo[j]);
+                    }
+                }
+            }
 
-    // for (i = 0; i < data.length; i+=1) {
-    //   // var f = data[key].id;
-    //   // var friendId = f.id;
-    //   // friendArray.push(friendId);
-    //   var friendName = data[i].name;
-    //   console.log(friendName)
-    //   $http.get('/api/userinfo/' + data[i].id).success(function(data2){
-    //     if (friendArray.length < 3) {
-    //       friendArray.push(data2.id, friendName, data2.type);
-    //     } else if (friendArray.length == 3) {
-    //       friendsArray.push(friendArray);
-    //       friendArray = [];
-    //     }
-    //     $scope.friendsArray = friendsArray;
-    //     console.log("friends: ", friendsArray);
-    //   })
-    // }
+            for (i = 0; i < friendsArray.length; i += 1) {
+                friendsArray[i].name = friendsArray[i].first_name + " " + friendsArray[i].last_name;
+                friendsArray[i].user_id = "";
+                friendsArray[i].email = "";
+                friendsArray[i].link = "";
+                friendsArray[i].createdAt = "";
+                friendsArray[i].updatedAt = "";
+            }
 
+            console.log(friendsArray);
+            $scope.friendsArray = friendsArray;
 
-    $scope.friendsArray = data;
+        })
 
-
-});
+    });
 
 }]);

@@ -19,11 +19,21 @@
     <div ng-repeat="f in (friendsArray | filter: query | orderBy: f.name) track by $index">
       <div class="col-md-3 text-center user-on-friends">
 
-        <a href="/type/{{f.id}}">
+
+        <a ng-if="f.type" ng-href="/type/{{f.type}}">
           <img ng-src="https://graph.facebook.com/{{f.id}}/picture" class="profile-pic"><br>
           {{f.name}}<br>
-          <span ng-show="f" class="badge badge-primary">TYPE</span>
+          <span class="badge badge-primary">{{f.type}}</span>
         </a>
+
+        <a ng-if="!f.type" href="#">
+          <img ng-src="https://graph.facebook.com/{{f.id}}/picture" class="profile-pic"><br>
+          {{f.name}}<br>
+        </a>
+
+
+
+
       </div>
     </div>
 
