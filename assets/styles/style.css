@@ -152,3 +152,26 @@ ul.nav.nav-tabs {
   margin-left: 0;
 }
 
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+  #mozaiq-big {
+    font-size: 6em;
+  }
+  #mozaiq-sub {
+    font-size: 1.08em;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+  #mozaiq-big {
+    font-size: 5em;
+  }
+  #mozaiq-sub {
+    font-size: .9em;
+  }
+}
+
+
+
